@@ -103,7 +103,6 @@ code {
   display: none;
 }
 
-<<<<<<< Updated upstream
 .product-reviews {
   list-style: none;
   padding: 0px;
@@ -111,7 +110,9 @@ code {
 .product-reviews .product-reviews-item {
   display: block;
   padding: 8px 0px;
-=======
+}
+
+
 .tabs {
   list-style: none;
   padding: 0;
@@ -127,5 +128,3 @@ code {
 }
 .tabs li.active {
   border-bottom: #222 solid 2px;
->>>>>>> Stashed changes
-}
