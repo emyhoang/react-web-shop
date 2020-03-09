@@ -15,11 +15,19 @@ class Tabs extends React.Component<IProps, IState> {
     };
   }
 
+  private handleTabClick = (e: React.MouseEvent<HTMLLIElement>) => {
+    const li = e.target as HTMLLIElement;
+    const heading: string = li.textContent ? li.textContent : '';
+    this.setState({ activeHeading: heading });
+  };
+
   public render() {
     return (
       <ul className='tabs'>
         {this.props.headings.map(heading => (
-          <li className={heading === this.state.activeHeading ? 'active' : ''}>{heading}</li>
+          <li onClick={this.handleTabClick} className={heading === this.state.activeHeading ? 'active' : ''}>
+            {heading}
+          </li>
         ))}
       </ul>
     );

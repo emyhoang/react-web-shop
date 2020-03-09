@@ -112,7 +112,6 @@ code {
   padding: 8px 0px;
 }
 
-
 .tabs {
   list-style: none;
   padding: 0;
@@ -128,3 +127,4 @@ code {
 }
 .tabs li.active {
   border-bottom: #222 solid 2px;
+}
