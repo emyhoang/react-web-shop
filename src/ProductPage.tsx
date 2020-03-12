@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Prompt, RouteComponentProps } from 'react-router-dom';
-import { getProduct, IProduct, products } from './ProductsData';
+import { getProduct, IProduct } from './ProductsData';
 import Product from './Product';
 
 type Props = RouteComponentProps<{ id: string }>;
@@ -41,8 +41,13 @@ class ProductPage extends React.Component<Props, IState> {
     return (
       <div className='page-container'>
         <Prompt when={!this.state.added} message={this.navAwayMessage} />
-        {product ? (
-          <Product product={product} inBasket={this.state.added} onAddToBasket={this.handleAddClick} />
+        {product || this.state.loading ? (
+          <Product
+            loading={this.state.loading}
+            product={product}
+            inBasket={this.state.added}
+            onAddToBasket={this.handleAddClick}
+          />
         ) : (
           <p>Product Not found!</p>
         )}
