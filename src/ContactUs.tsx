@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { Form, minLength, required } from './Form';
+import { Form, ISubmitResult, IValues, minLength, required } from './Form';
 
-const ContactUs: React.SFC = () => {
+interface IProps {
+  onSubmit: (values: IValues) => Promise<ISubmitResult>;
+}
+const ContactUs: React.SFC<IProps> = props => {
   // const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   props.onNameChange(e.currentTarget.value);
   // };
@@ -17,9 +20,13 @@ const ContactUs: React.SFC = () => {
   // const handleNotesChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
   //   props.onNotesChange(e.currentTarget.value);
   // };
-
+  const handleSubmit = async (values: IValues): Promise<ISubmitResult> => {
+    const result = await props.onSubmit(values);
+    return result;
+  };
   return (
     <Form
+      onSubmit={handleSubmit}
       defaultValues={{ name: '', email: '', reason: 'Support', notes: '' }}
       validationRules={{
         email: { validator: required },
