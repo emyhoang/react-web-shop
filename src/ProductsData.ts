@@ -69,3 +69,12 @@ export const getProduct = async (id: number): Promise<IProduct | null> => {
   const foundProducts = products.filter(customer => customer.id === id);
   return foundProducts.length === 0 ? null : foundProducts[0];
 };
+
+// fake API to fetch products
+export const getProducts = async (): Promise<IProduct[]> => {
+  const wait = (ms: number): Promise<void> => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  };
+  await wait(1000);
+  return products;
+};
