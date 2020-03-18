@@ -1,5 +1,6 @@
 import { Reducer } from 'redux';
 import { IProductsState, ProductsActions, ProductsActionTypes } from './ProductsTypes';
+
 const initialProductState: IProductsState = {
   products: [],
   productsLoading: false
@@ -20,5 +21,7 @@ export const productsReducer: Reducer<IProductsState, ProductsActions> = (state 
         productsLoading: false
       };
     }
+    default:
+      return state;
   }
 };
