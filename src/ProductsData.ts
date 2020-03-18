@@ -1,4 +1,4 @@
-import { wait } from '@testing-library/react';
+// import { wait } from '@testing-library/react';
 
 export interface IReview {
   comment: string;
